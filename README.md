@@ -1,7 +1,7 @@
 # vaccine_allocation
 A1. Figures - Main Text 
 
-Run “plot_all.m” for generating all figures, if mat files are present. To generate mat files, run "main_all.m"
+Run “plot_all.m” for generating all figures, if mat files are present. To generate mat files, run "main.m"
 
 Figure 1: 
 Dependence of the optimal fraction of vaccines to be donated to κ (coupling coefficient) and the vaccination rate. 
