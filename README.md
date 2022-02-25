@@ -1,72 +1,25 @@
 # vaccine_allocation
 A1. Figures - Main Text 
 
+Run “plot_all.m” for generating all figures, if mat files are present. To generate mat files, run "main_all.m"
+
+Figure 1: 
+Dependence of the optimal fraction of vaccines to be donated to κ (coupling coefficient) and the vaccination rate. 
+
+
 Figure 2: 
-Comparison of health and economic outcomes of COVID-19 given various interventions: baseline interactions (i.e., no intervention); optimal contact rate intervention (balance both health and economic outcomes) and fully lock down intervention (applied to all the subpopulations) with 75% isolation efficiency. 
-Run “main_compare.m”
+Variation of fatalities per 10^7 over 1 year in countries A and B for different values of µ. The value of µ which minimizes the fatalities in country A is termed the ‘optimal policy’. The simulation is run for low, medium and high coupling coefficients, κ (with κ ∈ {10^−6 , 10^−4, 10^−2}) and the daily vaccination rate is 0.28% of the total population
 
 Figure 3: 
-SEIR dynamics with contact rate interventions for various isolation efficiencies, (A) 25% isolation efficiency; (B) 50% isolation efficiency and (C) 75% isolation efficiency.
-(A) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.75; parsC.wr = 1; Name = ‘fig_dynamics_w_control_lowisoeff_intermediate’;
-(B) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.5; parsC.wr = 1; Name = ‘fig_dynamics_w_control_intermediate’;
-(C) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.25; parsC.wr = 1; Name = ‘fig_dynamics_w_control_highisoeff_intermediate’;
-
-Figure 4: 
-Heuristic state feedback intervention policies varying with isolation efficiency: (A) 25% isolation efficiency; (B) 50% isolation efficiency and (C) 75% isolation efficiency.
-Run plot_ga_reduced_grid.m for all 3 figures. A -> Fig. 1, B -> Fig. 2, C -> Fig. 3
-Requires access to mat files to run.
+Plots of the fatalities per 107 over 1 year for the no-sharing, optimal and hybrid policies in countries A and B. The analysis is done for different coupling coefficients (κ ∈ [10^−8 , 10^−1]) and three vaccination rates (50%, 75% and 100% of the population vaccinated in 1 year, assuming vaccine stock lasts). 
 
 A2. Figures - Supplementary Information
 
-Figure S2: 
-Population dynamics of SEIR model without control.
-Run ‘main.m’ with setting: wo_control = 1;
+Figure S1: 
+Fatalities in countries A and B when the (a) no-sharing policy, (b) optimal policy and (c) hybrid policy is implemented, over different κ ∈[10^−8,10^−1] and vaccination rates (from 0.14% to 0.42% of the population daily).
 
-Figure S4: 
-Population dynamics in a SEIR model with controlled contact rate (25% isolation e_fficiency).
-(Top) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.75; parsC.wr = 1e-4; Name = ‘fig_dynamics_w_control_lowisoeff_socioeco’;
-(Middle) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.75; parsC.wr = 1; Name = ‘fig_dynamics_w_control_lowisoeff_intermediate’;
-(Bottom) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.75; parsC.wr = 1e4; Name = ‘fig_dynamics_w_control_lowisoeff_infect’;
-
-Figure S5: 
-Population dynamics in a SEIR model with controlled contact rate (50% isolation e_fficiency).
-(Top) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.5; parsC.wr = 1e-4; Name = ‘fig_dynamics_w_control_socioeco’;
-(Middle) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.5; parsC.wr = 1; Name = ‘fig_dynamics_w_control_intermediate’;
-(Bottom) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.5; parsC.wr = 1e4; Name = ‘fig_dynamics_w_control_infect’;
-
-Figure S6: 
-Population dynamics in a SEIR model with controlled contact rate (75% isolation e_fficiency).
-(Top) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.25; parsC.wr = 1e-4; Name = ‘fig_dynamics_w_control_highisoeff_socioeco’;
-(Middle) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.25; parsC.wr = 1; Name = ‘fig_dynamics_w_control_highisoeff_intermediate’;
-(Bottom) Run “main.m” with setting: 
-parsC.cmin = parsM.cB*0.25; parsC.wr = 1e4; Name = ‘fig_dynamics_w_control_highisoeff_infect’;
-
-Figure S7: 
-Population dynamics in a SEIR model with mis-timed control policy for various isolation e_fficiencies: (Top) 25%
-isolation e_fficiency; (Middle) 50% isolation e_fficiency and (Bottom) 75% isolation e_fficiency.
-(Top) Run “main_mistimed.m” with setting: 
-parsC.cmin = parsM.cB*0.75; Name = ‘fig_dynamics_Tmiss25’;
-(Middle) Run “main_mistimed.m” with setting: 
-parsC.cmin = parsM.cB*0.5; parsC.wr = 1; Name = ‘fig_dynamics_Tmiss50’;
-(Bottom) Run “main_mistimed.m” with setting: 
-parsC.cmin = parsM.cB*0.25; parsC.wr = 1e4; Name = ‘fig_dynamics_Tmiss75’;
-
-
-Figure S9: 
-Heuristic state feedback intervention policies varying with isolation efficiency and shielding level on I-R phase plane. 11 figures with 5% increasing isolation efficiency in each row (from 25% to 75%). 4 columns with shielding levels of 2,3,4 and 5 resp.
-Run plot_ga_full_grid.m to get 11 figures which are concatenated together to complete Fig. S9. Requires access to mat files to run.
-
+Figure S2:
+Change in fatalities in countries A and B when comparing the hybrid policy with the optimal policy, over different κ ∈ [10−8,10−1] and vaccination rates (from 0.14% to 0.42% of the population daily).
 
 B1. Description of key scripts - Optimal Control 
 
