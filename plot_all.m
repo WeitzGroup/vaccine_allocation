@@ -111,7 +111,7 @@ xlabel('$\mu$ (Fraction donated)','Interpreter','latex')
 ylabel('Fatalities per $10^7$ over 1 year','Interpreter','latex')
 set(gca,'FontSize',20);
 legend boxoff
-title('$\kappa = 10^{-2}$')
+title('$\kappa = 10^{-6}$')
 
 
 
