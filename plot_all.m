@@ -20,10 +20,6 @@ parsM.kappa = 0;
 parsM.vaccine_reduction = 0.1;         %90 perc efficacy
 parsM.total_vaccines = 0.7*parsM.Ntot;
 
-% optimization algorithm parameters (backtracking step size)
-parsC.alpha = 0.1; % alpha is *very* important 
-parsC.beta = 0.5;
-
 % simulation params
 parsS.idx = 1;
 parsS.step = 0.02;
@@ -45,7 +41,7 @@ initial_state.B = [parsM.Ntot - ini_infected_2_base, 0, ...
 usa_vac_rate = 0.5/(6*30);
 lambda = usa_vac_rate * parsM.Ntot;
 
-%% reduction in fatalities for different mu
+%% reduction in fatalities for different mu (Fig. 2 a/b/c)
 mu_vec = 0:0.01:1;
 parsM.kappa = 10^(-6);
 parsS.vaccination_rate_baseline = 1*lambda;
@@ -57,7 +53,7 @@ for i =1:length(mu_vec)
     deaths_A(i) = state_sol_test.A(end,end);
     deaths_B(i) = state_sol_test.B(end,end);
 end
-%%
+
 [min_death_A, idx] = min(deaths_A);
 mu_optimal_val = mu_vec(idx);
 
@@ -84,8 +80,6 @@ reduction_B_optimal = (deaths_B(1) - deaths_B(idx))/deaths_B(1)*100;
 reduction_A_33 = (deaths_A(1) - deaths_A(34))/deaths_A(1)*100;
 reduction_B_33 = (deaths_B(1) - deaths_B(34))/deaths_B(1)*100;
 
-%str = {'$\uparrow $Optimal strategy'};
-%text(mu_optimal_val, deaths_A(idx),'Optimal fraction$\downarrow $', 'FontSize', 20, Interpreter='latex')
 
 fatalities_A = compose('%.1f',reduction_A_optimal);
 str1 = {fatalities_A{1},'\% reduction in A'};
@@ -116,8 +110,7 @@ title('$\kappa = 10^{-6}$')
 
 
 %% graphs for optimal strats
-% heatmap showing optimal mu for different kappa and vaccination rates
-%load('vac_don_save_70_perc_sym_diff_extended_final.mat')  %for 10^6
+% heatmap showing optimal mu for different kappa and vaccination rates (Fig. 1)
 load('vac_don_save_70_perc_10^7_pop.mat')
 
 kappa_iter =1;
@@ -165,7 +158,7 @@ h.NodeChildren(3).YAxis.Label.Interpreter = 'latex';
 h.NodeChildren(3).Title.Interpreter = 'latex';
 h.NodeChildren(3).YDir='normal'; 
 
-figure;
+figure; % draw contour lines for heatmap of mu = 33 perc and 0
 contour(vac_don_save', [0.33, 0.33],'--k', 'LineWidth',3)
 hold on
 contour(vac_don_save', [3*10^(-3),3*10^(-3)],'--r', 'LineWidth',3)
