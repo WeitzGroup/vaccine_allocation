@@ -262,7 +262,7 @@ plot_heatmap(xvals, yvals, fatalities_all.optimal.B, 0, 8*10^4);
 plot_heatmap(xvals, yvals, fatality_hybrid.A, 0, 8*10^4);
 plot_heatmap(xvals, yvals, fatality_hybrid.B, 0, 8*10^4);
 
-%% graph of optimal reduction and hybrid reduction for a and b for vac rate of 100% per year
+%% graph of optimal reduction and hybrid reduction for a and b for vac rate of 50, 75, 100% per year
 for i = 1:5:11
 figure;
 semilogx(kappa_vec, fatalities_all.baseline.A(i,:), ':b', 'Linewidth', 3)
@@ -302,39 +302,3 @@ axis square
 end
 
 
-%% graph of optimal and hybrid fatalities for a and b for vac rate of 100% per year
-for i = 1:5:11
-figure;
-semilogx(kappa_vec, fatality_reduction_optimal.A(i, :),'b','Linewidth', 2)
-hold on 
-semilogx(kappa_vec, fatality_reduction_optimal.B(i, :),'r','Linewidth', 2)
-
-plot(kappa_vec, fatality_reduction_hybrid.A(i, :), '--b','Linewidth', 2)
-plot(kappa_vec, fatality_reduction_hybrid.B(i, :), '--r','Linewidth', 2)
-xline(10^(-4),'-.k','Linewidth', 2)
-xticks([10^(-8),10^(-7),10^(-6),10^(-5),10^(-4),10^(-3),10^(-2),10^(-1)])               
-yticks(-20:10:100)
-legend('Fatality reduction in A (Optimal)','Fatality reduction in B (Optimal)',...
-    'Fatality reduction in A (Hybrid)','Fatality reduction in B (Hybrid)','Interpreter','latex')
-legend boxoff
-ax = gca;
-ax.XAxisLocation = 'origin';    
-%ylabel('Reduction in deaths ($\%$)', interpreter='latex')
-ylabel({'Excess';'deaths(\%)'}, interpreter='latex')
-xlabel('Coupling coefficient, $\kappa$', interpreter='latex')
-ylim([-20,100])
-xlim([10^(-8), 10^(-1)])
-set(gca,'FontSize',20);
-text(10^(-5), 20, '$\hat{\mu} = 0.33$', 'FontSize', 20, Interpreter='latex')
-text(10^(-5), 60, '$\hat{\mu} = \mu^*$', 'FontSize', 20, Interpreter='latex')
-
-axis square
-    if i ==1
-        title('$50\%$ vaccinated in 1 year', Interpreter='latex')
-    elseif i == 6
-        title('$75\%$ vaccinated in 1 year', Interpreter='latex')
-    else
-        title('$100\%$ vaccinated in 1 year', Interpreter='latex')
-    end   
-
-end
