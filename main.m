@@ -73,7 +73,7 @@ if ~isfile('coarse_start_pt_10^7_pop.mat')
             for i =1:length(mu_vec)
                 parsS.VA = parsM.total_vaccines * (1-(mu_vec(i)));
                 parsS.VB = parsM.total_vaccines * (mu_vec(i));
-                state_sol_test= state_solver(parsM, parsC, parsT, parsS,initial_state);
+                state_sol_test= state_solver(parsM, parsT, parsS,initial_state);
                 deaths_A(i) = state_sol_test.A(end,end);
                 deaths_B(i) = state_sol_test.B(end,end);
             end
@@ -113,12 +113,12 @@ while abs(grad) > 0.1
     parsS.VA = parsM.total_vaccines * (1-vac_donated);
     parsS.VB = parsM.total_vaccines * vac_donated;
     
-    state_sol = state_solver(parsM, parsC, parsT, parsS, initial_state);
+    state_sol = state_solver(parsM, parsT, parsS, initial_state);
     J1 = state_sol.A(end, end);
   
     parsS.VA = parsM.total_vaccines * (1-(vac_donated + dv));
     parsS.VB = parsM.total_vaccines * (vac_donated + dv);
-    state_sol_test = state_solver(parsM, parsC, parsT, parsS, initial_state);
+    state_sol_test = state_solver(parsM, parsT, parsS, initial_state);
     J2 = state_sol_test.A(end,end);
     grad_prev = grad;
     grad = (J2-J1)/dv;
@@ -186,7 +186,7 @@ for i = 1:length(vac_rate_vec)
             % setup for no share
             parsS.VA = parsM.total_vaccines * (1-vac_donated(k));
             parsS.VB = parsM.total_vaccines * vac_donated(k);
-            state_sol = state_solver(parsM, parsC, parsT, parsS, initial_state);
+            state_sol = state_solver(parsM, parsT, parsS, initial_state);
             if k == 1       % no share
                 fatalities_baseline.A(i, j) = state_sol.A(end, end);
                 fatalities_baseline.B(i, j) = state_sol.B(end, end);
