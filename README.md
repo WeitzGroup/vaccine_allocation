@@ -8,7 +8,7 @@ Dependence of the optimal fraction of vaccines to be donated to κ (coupling coe
 
 
 Figure 2: 
-Variation of fatalities per 10^7 over 1 year in countries A and B for different values of µ. The value of µ which minimizes the fatalities in country A is termed the ‘optimal policy’. The simulation is run for low, medium and high coupling coefficients, κ (with κ ∈ {10^−6 , 10^−4, 10^−2}) and the daily vaccination rate is 0.28% of the total population
+Variation of fatalities per 10^7 over 1 year in countries A and B for different values of µ. The value of µ which minimizes the fatalities in country A is termed the ‘optimal policy’. The simulation is run for low, medium and high coupling coefficients, κ (with κ ∈ {10^−6 , 10^−4, 10^−2}) and the daily vaccination rate is 0.28% of the total population. For plotting, change line 50 in plot_all.m with appropriate value of κ, as needed ({10^−6 , 10^−4, 10^−2})
 
 Figure 3: 
 Plots of the fatalities per 107 over 1 year for the no-sharing, optimal and hybrid policies in countries A and B. The analysis is done for different coupling coefficients (κ ∈ [10^−8 , 10^−1]) and three vaccination rates (50%, 75% and 100% of the population vaccinated in 1 year, assuming vaccine stock lasts). 
