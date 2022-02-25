@@ -49,7 +49,7 @@ parsS.vaccination_rate_baseline = 1*lambda;
 for i =1:length(mu_vec)
     parsS.VA = parsM.total_vaccines * (1-(mu_vec(i)));
     parsS.VB = parsM.total_vaccines * (mu_vec(i));
-    state_sol_test= state_solver(parsM, parsC, parsT, parsS,initial_state);
+    state_sol_test= state_solver(parsM, parsT, parsS,initial_state);
     deaths_A(i) = state_sol_test.A(end,end);
     deaths_B(i) = state_sol_test.B(end,end);
 end
