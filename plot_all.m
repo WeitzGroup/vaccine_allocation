@@ -195,18 +195,6 @@ fatality_reduction_third.B = 100*(fatalities_all.baseline.B - fatalities_all.thi
 fatality_reduction_half.A = 100*(fatalities_all.baseline.A - fatalities_all.half.A)./fatalities_all.baseline.A;
 fatality_reduction_half.B = 100*(fatalities_all.baseline.B - fatalities_all.half.B)./fatalities_all.baseline.B;
 
-%%
-% heatmaps for optimal
-plot_heatmap(xvals, yvals, fatality_reduction_optimal.A, -20, 100)
-plot_heatmap(xvals, yvals, fatality_reduction_optimal.B, -20, 100);
-
-% heatmaps for 1/3 reduction
-plot_heatmap(xvals, yvals, fatality_reduction_third.A,-20, 100);
-plot_heatmap(xvals, yvals, fatality_reduction_third.B,-20, 100);
-
-% heatmaps for 1/2 reduction
-plot_heatmap(xvals, yvals, fatality_reduction_half.A,-20, 100);
-plot_heatmap(xvals, yvals, fatality_reduction_half.B,-20, 100);
 
 %% hybrid strat
 % heatmap comparing hybrid strat (max(1/3, optimal)) with optimal
@@ -234,26 +222,25 @@ for i =1:length(vac_don_save(:, 1))
     end    
 end    
 
-% compare hybrid to no-share
-plot_heatmap(xvals, yvals, fatality_reduction_hybrid.A,-20, 100);
-plot_heatmap(xvals, yvals, fatality_reduction_hybrid.B,-20, 100);
 
-% compare hybrid to optimal
-plot_heatmap(xvals, yvals, 100*fatality_reduction_hybrid_compare_optimal.A, 0, 100);
-plot_heatmap(xvals, yvals, -100*fatality_reduction_hybrid_compare_optimal.B, 0, 100);
 
 %% actual fatalities in no-share, optimal and hybrid
-% no-share
+% no-share Fig. S1 (a)
 plot_heatmap(xvals, yvals, fatalities_all.baseline.A, 0, 8*10^4);
 plot_heatmap(xvals, yvals, fatalities_all.baseline.B, 0, 8*10^4);
 
-% optimal
+% optimal Fig. S1 (b)
 plot_heatmap(xvals, yvals, fatalities_all.optimal.A, 0, 8*10^4);
 plot_heatmap(xvals, yvals, fatalities_all.optimal.B, 0, 8*10^4);
 
-% hybrid
+% hybrid Fig. S1 (c)
 plot_heatmap(xvals, yvals, fatality_hybrid.A, 0, 8*10^4);
 plot_heatmap(xvals, yvals, fatality_hybrid.B, 0, 8*10^4);
+
+
+%% compare hybrid to optimal Fig. S2
+plot_heatmap(xvals, yvals, 100*fatality_reduction_hybrid_compare_optimal.A, 0, 100);
+plot_heatmap(xvals, yvals, -100*fatality_reduction_hybrid_compare_optimal.B, 0, 100);
 
 %% graph of optimal reduction and hybrid reduction for a and b for vac rate of 50, 75, 100% per year
 for i = 1:5:11
@@ -293,5 +280,3 @@ axis square
     end   
 
 end
-
-
