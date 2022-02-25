@@ -17,12 +17,7 @@ parsM.cB = [parsM.c_baseline; parsM.c_baseline; parsM.c_baseline/2; ...
 
 parsM.kappa = 0;
 
-parsM.vaccine_reduction = 0.9;         %90 perc efficacy
 parsM.total_vaccines = 0.7*parsM.Ntot;
-
-% optimization algorithm parameters (backtracking step size)
-parsC.alpha = 0.1; % alpha is *very* important 
-parsC.beta = 0.5;
 
 % simulation params
 parsS.idx = 1;
@@ -37,9 +32,6 @@ parsT.dt = 1e-1;
 % outbreak simulation with true model
 parsT.t0 = 0;
 parsT.tf = 12*30;   % 12 months
-
-
-option = 2; % 2 for bad in A, 1 for bad in B, 3 for both equal
 
 ini_infected_1_base = 500;
 ini_infected_2_base = 500;
