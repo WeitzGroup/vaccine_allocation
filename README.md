@@ -1,3 +1,10 @@
+# Problem description
+
+We consider two countries, A  and B, each confronting a COVID-19 outbreak in which one country (A) has a vaccine stockpile and the other country (B) does not. The outbreak  is modelled using SEIRV (Susceptible - Exposed - Infected - Recovered - Vaccinated) dynamics. The system dynamics of the countries are coupled and active infections in one country can cause infections in the other country.   Further, country A has the option of donating a part of its vaccine stock to country B. This vaccine sharing can only be done once at the start of the outbreak - between A (the donor country) and B (the recipient country).  
+
+The objective of the selfish, optimal vaccine sharing policy is to minimize fatalities in the donor country. The epidemic dynamics between countries are coupled. Here, we explore optimal policies as a function of epidemiological parameters as well as two features of the two-nation problem: (i) the epidemic coupling  constant; (ii) the rate of vaccine uptake in the donor country.  Increase in the epidemic coupling constant makes it more likely that infections in the recipient country lead to new cases in the donor country (and vice-versa).  The vaccine uptake rate controls the rate at which a donor country can potentially use its vaccine stockpile; and we focus on limits in which the rate of vaccine uptake (on the order of a year) is slower than that of typical outbreak dynamics (i.e., on the order of months).  In all cases the objective of the donor country is to minimize fatalities in its own country. 
+
+
 # vaccine_allocation
 A1. Figures - Main Text 
 
