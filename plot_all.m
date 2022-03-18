@@ -1,10 +1,10 @@
 %% Parameters
 % model parameters
-parsM.Tinc = 4; % length of incubation period
-parsM.Tinf = 6; % duration patient is infectious
+parsM.Tinc = 4; % length of incubation period (days)
+parsM.Tinf = 6; % duration patient is infectious (days)
 parsM.etaI = 0.1; % *true* transmission effectivenesss, note transmission rate beta ~ etaI*contactRate
 parsM.mu = 1e-2; % case fatality ratio
-parsM.c_baseline = 5; % baseline contact rate
+parsM.c_baseline = 5; % baseline contact rate (/day)
 parsM.Ntot = 1e7; % total number of population (neglect death)
 parsM.numSVar = 10; % number of state variables
 parsM.numCVar = 1; % number of control variables
@@ -17,7 +17,6 @@ parsM.cB = [parsM.c_baseline; parsM.c_baseline; parsM.c_baseline/2; ...
 
 parsM.kappa = 0;
 
-parsM.vaccine_reduction = 0.1;         %90 perc efficacy
 parsM.total_vaccines = 0.7*parsM.Ntot;
 
 % simulation params
