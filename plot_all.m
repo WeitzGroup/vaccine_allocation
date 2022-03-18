@@ -135,8 +135,8 @@ h = heatmap(xvals, yvals, vac_don_save','CellLabelColor','none');
 %h = heatmap(vac_don_save','CellLabelColor','none');
 h.Colormap = parula;
 
-xlabel('Percentage vaccinated daily ($\%$)')
-ylabel('Coupling coefficient, $\kappa$')
+xlabel('Percentage vaccinated daily ($\%$)','Interpreter', 'latex')
+ylabel('Coupling coefficient, $\kappa$','Interpreter', 'latex')
 set(gca,'FontSize',20);
 h.XDisplayLabels = compose('%.2f',str2double(h.XDisplayLabels));
 for i = 1:3:63
@@ -164,10 +164,10 @@ contour(vac_don_save', [3*10^(-3),3*10^(-3)],'--r', 'LineWidth',3)
 
 xticks(1:2:21)
 xticklabels(xvals(1:2:21)*360)
-title('No sharing', Interpreter='latex')
-title('$33\%$ sharing', Interpreter='latex')
-xlabel('Percentage vaccinated yearly ($\%$)',Interpreter='latex')
-ylabel('Coupling coefficient, $\kappa$')
+title('No sharing', 'Interpreter', 'latex')
+title('$33\%$ sharing', 'Interpreter', 'latex')
+xlabel('Percentage vaccinated yearly ($\%$)','Interpreter', 'latex')
+ylabel('Coupling coefficient, $\kappa$','Interpreter', 'latex')
 set(gca,'FontSize',20);
 
 % 
@@ -260,9 +260,9 @@ legend('Fatalities in A (No-sharing)','Fatalities in B (No-sharing)','Fatalities
 legend boxoff
 ax = gca;
 ax.XAxisLocation = 'origin';    
-ylabel('Fatalities per $10^7$ in 1 year', interpreter='latex')
+ylabel('Fatalities per $10^7$ in 1 year', 'Interpreter', 'latex')
 %ylabel({'Excess';'deaths(\%)'}, interpreter='latex')
-xlabel('Coupling coefficient, $\kappa$', interpreter='latex')
+xlabel('Coupling coefficient, $\kappa$', 'Interpreter', 'latex')
 ylim([0,10^5])
 xlim([10^(-8), 10^(-1)])
 set(gca,'FontSize',20);
@@ -271,11 +271,11 @@ text(10^(-5), 60, '$\hat{\mu} = \mu^*$', 'FontSize', 20, Interpreter='latex')
 
 axis square
     if i ==1
-        title('$50\%$ vaccinated in 1 year', Interpreter='latex')
+        title('$50\%$ vaccinated in 1 year', 'Interpreter', 'latex')
     elseif i == 6
-        title('$75\%$ vaccinated in 1 year', Interpreter='latex')
+        title('$75\%$ vaccinated in 1 year', 'Interpreter', 'latex')
     else
-        title('$100\%$ vaccinated in 1 year', Interpreter='latex')
+        title('$100\%$ vaccinated in 1 year', 'Interpreter', 'latex')
     end   
 
 end
