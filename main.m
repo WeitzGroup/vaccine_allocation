@@ -1,10 +1,10 @@
 %% Parameters
 % model parameters
-parsM.Tinc = 4; % length of incubation period
-parsM.Tinf = 6; % duration patient is infectious
+parsM.Tinc = 4; % length of incubation period (days)
+parsM.Tinf = 6; % duration patient is infectious (days)
 parsM.etaI = 0.1; % *true* transmission effectivenesss, note transmission rate beta ~ etaI*contactRate
 parsM.mu = 1e-2; % case fatality ratio
-parsM.c_baseline = 5; % baseline contact rate
+parsM.c_baseline = 5; % baseline contact rate (/day)
 parsM.Ntot = 1e7; % total number of population (neglect death)
 parsM.numSVar = 10; % number of state variables
 parsM.numCVar = 1; % number of control variables
@@ -33,20 +33,21 @@ parsT.dt = 1e-1;
 parsT.t0 = 0;
 parsT.tf = 12*30;   % 12 months
 
-ini_infected_1_base = 500;
-ini_infected_2_base = 500;
+ini_infected_1_base = 500;  % initial infected cases in A
+ini_infected_2_base = 500;  % initial infected cases in B
 
-%ini_infected_multiplier_vector = [0.1, 0.3, 0.5, 1,  2,  5, 10];
 ini_infected_multiplier_vector = 1;
 
 % costate boundary condition
 lambda_tf = zeros(12,1);
 lambda_tf(6) = 1;       % grad of D_A
 
+% initial subpopulations of A and B
 initial_state.A = [parsM.Ntot - ini_infected_1_base, 0, ...
     ini_infected_1_base, 0, 0, 0];
 initial_state.B = [parsM.Ntot - ini_infected_2_base, 0, ...
     ini_infected_2_base, 0, 0, 0];
+
 %% kappa vector
 kappa_iter =1;
 kappa_vec = 0;
